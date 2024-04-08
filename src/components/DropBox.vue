@@ -46,8 +46,7 @@ const onTouchStart = () => {
 <template>
   <div ref="box" class="h-[64px] relative overflow-hidden border " @drop="onDrop" @dragend="dragEnd" @dragenter.prevent
     @dragover.prevent>
-    <ul :class="{ 'divide-y': isPP }" class="flex-1 group/item" v-if="time" @dragstart="startDrag(time)"
-      @touchstart="onTouchStart(time)" draggable="true">
+    <ul :class="{ 'divide-y': isPP }" class="flex-1 group/item" v-if="time" @dragstart="startDrag(time)" draggable="true">
       <button type="button" @click="dragEnd"
         class="group-hover/item:left-1 flex items-center justify-center -left-6 transition-all absolute top-0 text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-1.5 py-1 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
         <i class="fal fa-times"></i>
