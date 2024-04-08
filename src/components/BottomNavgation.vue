@@ -4,52 +4,34 @@ import { storeToRefs } from "pinia";
 
 import SubjectList from "./SubjectList.vue";
 import type { Time } from '../types/index';
+import { ref } from 'vue';
 const store = useSubjectStore();
 const { subjects } = storeToRefs(store);
 
-const startDrag = (item: Time) => {
+let selectId = ref<string>("");
+const startDrag = (item: Time | null) => {
     store.dragValue = item;
-    console.log(999);
-
+};
+const selectSub = (item: Time) => {
+    if (selectId.value == item.id) {
+        selectId.value = "";
+        startDrag(null);
+    } else {
+        selectId.value = item.id;
+        startDrag(item);
+    }
 };
 
-const onTouchStart = (event: any, item: Time) => {
-    // Get touch coordinates
-    event.target.classList.add("bg-red-500")
-    startDrag(item)
-    console.log(77);
 
-    // Handle touch start
-    // ...
-};
-const onTouchMove = (event: any) => {
-    // // Get touch coordinates
-    const touchX = event.touches[0].clientX;
-    const touchY = event.touches[0].clientY;
-    console.log("onTouchMove", event);
-    // Handle touch move
-    // ...
-};
-const onTouchEnd = (event) => {
-    // Handle touch end
-    // ...
-    console.log("onTouchEndSide");
-};
+
 </script>
 <template>
-    <div
-        class="fixed sm:hidden bottom-0 left-0 z-50 w-full h-16 bg-slate-500 border-t border-gray-200  ">
+    <div class="fixed sm:hidden bottom-0 left-0 z-50 w-full h-16 bg-slate-100 border-t border-gray-200  ">
         <div class="flex h-full gap-3 justify-start px-2 items-center max-w-lg w-full  mx-auto overflow-x-auto  ">
-            <SubjectList
-       
-         class="flex-shrink-0"
-            v-for="item in subjects"
-            :key="item.id"
-            :time="item"
-            @touchstart="onTouchStart($event, item)"
-               @touchmove="onTouchMove($event)"
-          />
+            <SubjectList v-for="item in subjects" :key="item.id" :time="item"
+                :class="{ 'text-green-500 bg-green-200': selectId == item.id }" class="flex-shrink-0"
+                @click="selectSub(item)" />
         </div>
-       
+
     </div>
 </template>
