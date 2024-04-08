@@ -1,0 +1,36 @@
+@tailwind base;
+@layer base {
+  img {
+    @apply inline-block;
+  }
+}
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+ 
+}
+
+@font-face {
+  font-family: "tajawal";
+  src: url("./tajawal.ttf");
+}
+body,
+html {
+  height: 100% !important;
+}
+html {
+  /* scroll-behavior: smooth;
+  overflow-y: overlay;
+  scrollbar-width: none; */
+}
+body {
+  font-family: "tajawal", sans-serif !important;
+  /* background: url("./assets/bg.png") no-repeat; */
+  /* background: linear-gradient(0deg, #fddac6, #f68f6e);rerererererererererer
+  background-size: cover;
+  height: 100vh; */
+}
