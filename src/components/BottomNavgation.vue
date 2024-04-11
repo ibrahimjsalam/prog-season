@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { useSubjectStore } from "../stores/subjects";
+
 import { storeToRefs } from "pinia";
 
 import SubjectList from "./SubjectList.vue";
 import type { Time } from '../types/index';
 import { ref } from 'vue';
-const store = useSubjectStore();
+import { useProgramStore } from '../stores/program';
+const store = useProgramStore();
 const { subjects } = storeToRefs(store);
 
 let selectId = ref<string>("");

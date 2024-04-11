@@ -1,11 +1,10 @@
-import { ref, computed } from "vue";
-import { defineStore } from "pinia";
+import { acceptHMRUpdate, defineStore } from "pinia";
 import type { Time, Day } from "@/types";
 import { nanoid } from "nanoid";
- 
+import { useStorage } from "@vueuse/core";
+import type { IndexType } from "typescript";
 
- 
-export const useSubjectStore = defineStore("subject", {
+export const useProgramStore = defineStore("program", {
   state: () => ({
     days: [
       {
@@ -63,9 +62,24 @@ export const useSubjectStore = defineStore("subject", {
         place: "قاعة/2/",
       },
     ] as Time[],
-    boxs: new Array(25).fill(null) as (Time[] | null[]),
-    dragValue: null as (Time | null),
+    boxs: useStorage<Time[] | null[]>("boxs", new Array(25).fill(null)),
+    dragValue: null as Time | null,
   }),
-
-  
+  actions: {
+    startDrag(item: Time) {
+      this.dragValue = { ...item } as Time;
+    },
+    dragEnd(id: any) {
+      this.boxs[id] = null;
+    },
+    onDrop(id: any) {
+      if (this.dragValue) {
+        this.boxs[id] = { ...this.dragValue } as Time;
+      }
+    },
+  },
 });
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useProgramStore, import.meta.hot));
+}
