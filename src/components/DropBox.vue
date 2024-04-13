@@ -16,16 +16,9 @@ const props = defineProps<{
 }>();
 const box = ref<HTMLDivElement | null>(null)
 
-
-
-
-
-
-
-
 </script>
 <template>
-  <div ref="box" class="h-[64px] relative overflow-hidden border " @drop="store.onDrop(id)" @dragenter.prevent
+  <div ref="box" class="h-[64px] overflow-hidden relative border" @drop="store.onDrop(id)" @dragenter.prevent
     @dragover.prevent>
     <BoxZone v-if="time" :time="time" :id="id" />
     <div v-else @click="store.onDrop(id)" class="flex justify-center items-center h-full w-100  group/plus ">

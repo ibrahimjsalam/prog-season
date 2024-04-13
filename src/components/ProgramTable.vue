@@ -35,14 +35,15 @@ const clearCache = () => {
 
 const getImg = () => {
   html2canvas(photo.value as HTMLDivElement, {
-    scale: 3,
+    scale: 2,
   }).then(function (canvas) {
     let u = canvas.toDataURL();
     var link = document.createElement("a");
-    link.download = `prog.${nanoid()}.png`;
+    link.download = `prog${nanoid()}.png`;
     link.href = u;
     link.click();
   });
+
 };
 onMounted(() => {
   scaleUp();
@@ -52,13 +53,16 @@ onMounted(() => {
 </script>
 <template>
   <main class="w-100 overflow-hidden bg-gray-200 relative grid place-items-center">
-    <button @click="clearCache" type="button" class="fixed top-2 rounded p-3 hover:bg-red-200 hover:text-red-600 left-7">
-      <i class="fal fa-eraser"></i>
-    </button>
-    <button @click="getImg" type="button"
-      class="fixed top-2 rounded p-3 hover:bg-purple-200 hover:text-purple-600 left-20">
-      <i class="fal fa-save"></i>
-    </button>
+    <div class="fixed sm:left-6 left-1 top-2">
+
+
+      <button @click="clearCache" type="button" class=" rounded p-3 hover:bg-red-200 hover:text-red-600  ">
+        <i class="fal fa-eraser"></i>
+      </button>
+      <button @click="getImg" type="button" class="ms-2 rounded p-3 hover:bg-purple-200 hover:text-purple-600  ">
+        <i class="fal fa-save"></i>
+      </button>
+    </div>
     <div ref="programTable" class="px-1 origin-right">
       <div ref="photo" class=" text-[8px] w-[510px] bg-white h-fit grid grid-cols-6">
         <TimeColumn class="row-span-7 col-span-1" />

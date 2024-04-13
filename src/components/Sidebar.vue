@@ -37,7 +37,7 @@ const selectSub = (item: Time) => {
   <aside class="bg-slate-300 p-5 relative hidden sm:flex items-center justify-center overflow-auto">
     <div class="text-sm space-y-2">
       <SubjectList v-for="item in subjects" @click="selectSub(item)"
-        :class="{ 'text-green-500 bg-green-200  ': selectId == item.id }" @dragstart="store.startDrag(item)"
+        :class="{ 'text-green-500 bg-green-400  ': selectId == item.id }" @dragstart="store.startDrag(item)"
         draggable="true" :key="item.id" :time="item" />
     </div>
   </aside>
