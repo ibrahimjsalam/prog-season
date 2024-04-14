@@ -16,7 +16,7 @@ const clearCache = () => {
 
 const getImg = () => {
     let scale = 2;
-    const node = document.querySelector("") as HTMLDivElement;
+    const node = document.querySelector(".photo") as HTMLDivElement;
     domtoimage
         .toPng(node, {
             //quality: 0.99,
