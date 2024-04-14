@@ -87,7 +87,7 @@ export const useProgramStore = defineStore("program", {
         borderColor: "#fd7d4f ",
         background: "#fba3a0",
         foreground: "#eee",
-        fontColor: "#0c4128",
+        fontColor: "#4f291b",
       },
       {
         borderColor: "#1b1b1b",

@@ -36,7 +36,7 @@ const getImg = () => {
 };
 </script>
 <template>
-    <nav class="absolute px-4  inset-x-0   w-full top-2 flex   gap-2 justify-end items-center">
+    <nav class="  px-4   w-full   flex   gap-2 justify-end items-center">
 
         <Picker v-if="showPick" />
         <div class="flex">
