@@ -1,29 +1,38 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { useProgramStore } from '@/stores/program';
+import { useColorMode } from '@vueuse/core'
 
-const store = useProgramStore();
-
-const current = computed(() => store.currentTheme.borderColor)
+const mode = useColorMode() // Ref<'dark' | 'light' | 'dim' | 'cafe'>
 
 
+
+
+const setTheme = (color: any) => {
+    mode.value = color;
+}
 </script>
 
 <template>
-    <div class="control flex-1 z-40">
-        <div class="p-2 rounded  gap-3 backdrop-blur-md bg-slate-100 bg-opacity-40  flex justify-around items-center">
+    <div class="p-2 rounded  gap-5   backdrop-blur-md bg-slate-100 bg-opacity-40 justify-around items-center">
 
-            <div class="colors" v-for="(theme, index) in store.themes" :key="index"
-                :class="{ active: store.currentTheme.borderColor == theme.borderColor }" @click="store.setTheme(theme)"
-                :style="{ color: theme.borderColor }">
-                <i class="fa fa-2x fa-circle"></i>
-            </div>
 
+        <div @click="setTheme('blue')" class="text-c-blue-300">
+            <i class="fa fa-2x fa-circle  "></i>
         </div>
+        <div @click="setTheme('purple')" class="text-c-purple-300">
+            <i class="fa fa-2x fa-circle"></i>
+        </div>
+        <div @click="setTheme('orange')" class="text-c-orange-300">
+            <i class="fa fa-2x fa-circle"></i>
+        </div>
+        <div @click="setTheme('pink')" class="text-c-pink-300">
+            <i class="fa fa-2x fa-circle"></i>
+        </div>
+        <div @click="setTheme('dark')" class="text-c-gray-300">
+            <i class="fa fa-2x fa-circle"></i>
+        </div>
+
     </div>
 </template>
-<style scoped>
-.colors.active {
-    text-shadow: 0px 0px 15px v-bind(current);
-}
-</style>
+<style scoped></style>

@@ -8,7 +8,7 @@ import { storeToRefs } from 'pinia';
 import BoxZone from "./BoxZone.vue";
 import { useProgramStore } from '@/stores/program';
 const store = useProgramStore();
-let { currentTheme } = storeToRefs(store);
+
 
 const props = defineProps<{
   time: Time | null;
@@ -18,12 +18,13 @@ const box = ref<HTMLDivElement | null>(null)
 
 </script>
 <template>
-  <div ref="box" :style="{ borderColor: currentTheme.background }" class="h-[64px] overflow-hidden relative border   "
+  <div ref="box"
+    class="h-[64px] overflow-hidden relative  border-t border-l  pink:bg-c-pink-100 dark:bg-c-gray-100 orange:bg-c-orange-100  purple:bg-c-purple-100  blue:bg-c-blue-100   pink:border-c-pink-200 dark:border-c-gray-200 orange:border-c-orange-200  purple:border-c-purple-200  blue:border-c-blue-200"
     @drop="store.onDrop(id)" @dragenter.prevent @dragover.prevent>
     <BoxZone v-if="time" :time="time" :id="id" />
     <div v-else @click="store.onDrop(id)" class="flex justify-center items-center h-full w-100  group/plus ">
-      <addicon :style="{ fill: currentTheme.background }"
-        class="fill-gray-400 opacity-0 group-hover/plus:opacity-100 transition-opacity duration-150" />
+      <addicon
+        class=" purple:fill-p-purple-200  blue:fill-b-blue-200 fill-gray-400 opacity-0 group-hover/plus:opacity-100 transition-opacity duration-150" />
     </div>
   </div>
 </template>

@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import Picker from "./Picker.vue";
-import { ref } from 'vue';
+import { ref } from "vue";
 
 import { nanoid } from "nanoid";
 
-
-import domtoimage from 'dom-to-image';
-import { useProgramStore } from '../../stores/program';
+import domtoimage from "dom-to-image";
+import { useProgramStore } from "../../stores/program";
 let showPick = ref(false);
 const store = useProgramStore();
 
@@ -16,7 +15,7 @@ const clearCache = () => {
 
 const getImg = () => {
     let scale = 2;
-    const node = document.querySelector(".photo") as HTMLDivElement;
+    const node = document.querySelector(".svgg") as HTMLDivElement;
     domtoimage
         .toPng(node, {
             //quality: 0.99,
@@ -36,9 +35,8 @@ const getImg = () => {
 };
 </script>
 <template>
-    <nav class="  px-4   w-full   flex   gap-2 justify-end items-center">
+    <nav class="px-4 w-full flex gap-2 justify-end items-center">
 
-        <Picker v-if="showPick" />
         <div class="flex">
             <button @click="showPick = !showPick" type="button" :class="{ 'bg-red-200': showPick }"
                 class="mx-2 rounded p-3 hover:bg-orange-200 hover:text-orange-600">
@@ -55,6 +53,5 @@ const getImg = () => {
                 <i class="fal fa-save"></i>
             </button>
         </div>
-
     </nav>
 </template>

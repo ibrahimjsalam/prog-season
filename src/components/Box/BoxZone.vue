@@ -12,12 +12,12 @@ export default defineComponent({
     data() {
         return {
             enableEdit: true,
-            isPrac: false
+            isPrac: true
         }
     },
     computed: {
 
-        ...mapState(useProgramStore, ["dragValue", "currentTheme", "boxs"])
+        ...mapState(useProgramStore, ["dragValue", "boxs"])
     },
 
     props: {
@@ -49,13 +49,10 @@ export default defineComponent({
 </script>
 
 <template>
-    <ul :style="{ color: currentTheme.fontColor }" class="flex-1   border-inherit bg-inherit  group/item "
-        @dragstart="moveBox(time)" @dragend="dragEnd(id)" draggable="true">
-        <div v-if="!isPrac" :style="{ background: currentTheme.background }"
-            class="absolute blur-md -top-1 -left-1 w-6 h-6 rotate-45 "></div>
-        <div v-if="!isPrac" :style="{ background: currentTheme.background }"
-            class="absolute blur-md -bottom-1 -right-1 w-6 h-6 rotate-45 "></div>
-        <div
+    <ul class="flex-1 h-full group/item   " @dragstart="moveBox(time)" @dragend="dragEnd(id)" draggable="true">
+        <div v-if="!isPrac" class="absolute blur-md -top-1 -left-1 w-6 h-6 rotate-45 "></div>
+        <div v-if="!isPrac" class="absolute blur-md -bottom-1 -right-1 w-6 h-6 rotate-45 "></div>
+        <!-- <div
             class="absolute flex justify-center items-center gap-1 scale-0 group-hover/item:scale-100  transition-all duration-300  inset-0 bg-slate-400 z-10 bg-opacity-35">
             <button type="button" @click="endMove(id)"
                 class="group-hover/item:left-1  px-2  transition-all  text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm    text-center ">
@@ -65,13 +62,11 @@ export default defineComponent({
                 class="group-hover/item:left-1  px-2  transition-all   text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm    text-center ">
                 +
             </button>
-        </div>
+        </div> -->
+        <li class="py-1  px-1.5 ">{{ time.subject }}</li>
+        <li class="py-1  px-1.5 ">{{ time.instructor }}</li>
+        <li class="py-1  px-1.5 ">{{ time.place }}</li>
 
-        <input :disabled="enableEdit" class="py-1 bg-inherit   px-1.5 text-center" type="text" v-model="time.subject" />
-        <input v-if="isPrac" :disabled="enableEdit" class="py-1 px-1.5 border-inherit bg-inherit border-t text-center"
-            type="text" v-model="time.instructor" />
-        <input v-if="isPrac" :disabled="enableEdit" class="py-1  border-inherit bg-inherit border-t   px-1.5 text-center"
-            type="text" v-model="time.place" />
 
     </ul>
 </template>

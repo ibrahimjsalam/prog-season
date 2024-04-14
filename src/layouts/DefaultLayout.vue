@@ -5,20 +5,21 @@ import Navbar from "@/components/Bar/Navbar.vue";
 
 <template>
   <!-- ===== Page Wrapper Start ===== -->
-  <div class="flex h-screen overflow-hidden">
+  <div
+    class="flex h-screen overflow-hidden  pink:bg-c-pink-200 dark:bg-c-gray-200 orange:bg-c-orange-200  purple:bg-c-purple-200  blue:bg-c-blue-200">
     <!-- ===== Sidebar Start ===== -->
     <Sidebar />
     <!-- ===== Sidebar End ===== -->
 
     <!-- ===== Content Area Start ===== -->
-    <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+    <div class="relative flex flex-1 flex-col gap-3 overflow-y-auto overflow-x-hidden">
       <!-- ===== Header Start ===== -->
       <Navbar />
       <!-- ===== Header End ===== -->
 
       <!-- ===== Main Content Start ===== -->
-      <main>
-        <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+      <main class="grid h-full place-items-center">
+        <div class="ps-1">
           <slot></slot>
         </div>
       </main>
