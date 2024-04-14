@@ -3,11 +3,11 @@
 import { storeToRefs } from "pinia";
 
 import SubjectList from "./SubjectList.vue";
-import type { Time } from '../types/index';
+import type { Time } from '@/types/index';
 import { ref } from 'vue';
-import { useProgramStore } from '../stores/program';
+import { useProgramStore } from '@/stores/program';
 const store = useProgramStore();
-const { subjects } = storeToRefs(store);
+const { subjects, currentTheme } = storeToRefs(store);
 
 let selectId = ref<string>("");
 const startDrag = (item: Time | null) => {
@@ -27,9 +27,10 @@ const selectSub = (item: Time) => {
 
 </script>
 <template>
-    <div class="fixed sm:hidden bottom-0 left-0 z-50 w-full h-16 bg-slate-100 border-t border-gray-200  ">
+    <div class="fixed sm:hidden bottom-0 left-0 z-50 w-full h-16   " :style="{ background: currentTheme.borderColor }">
         <div class="flex h-full gap-3 justify-start px-2 items-center max-w-lg w-full  mx-auto overflow-x-auto  ">
             <SubjectList v-for="item in subjects" :key="item.id" :time="item"
+                :style="{ background: currentTheme.background }"
                 :class="{ 'text-green-100 bg-green-300': selectId == item.id }" class="flex-shrink-0"
                 @click="selectSub(item)" />
         </div>

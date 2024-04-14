@@ -11,13 +11,11 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.9.0",
-    "html2canvas": "^1.4.1",
-    "html2pdf.js": "^0.10.1",
+    "dom-to-image": "^2.6.0",
     "nanoid": "^5.0.6",
     "pinia": "^2.1.6",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.4",
-    "vuedraggable": "^4.1.0"
+    "vue-router": "^4.2.4"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.0",

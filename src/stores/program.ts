@@ -1,8 +1,7 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
-import type { Time, Day } from "@/types";
+import type { Time, Day, Style } from "@/types";
 import { nanoid } from "nanoid";
 import { useStorage } from "@vueuse/core";
-import type { IndexType } from "typescript";
 
 export const useProgramStore = defineStore("program", {
   state: () => ({
@@ -64,6 +63,45 @@ export const useProgramStore = defineStore("program", {
     ] as Time[],
     boxs: useStorage<Time[] | null[]>("boxs", new Array(25).fill(null)),
     dragValue: null as Time | null,
+    themes: [
+      {
+        borderColor: "#0d6efd",
+        background: "#6ea8fe",
+        foreground: "#adc5e9",
+        fontColor: "#011f4c",
+      },
+      {
+        borderColor: "#6610f2",
+        background: "#a370f7",
+        foreground: "#c8b6e6",
+        fontColor: "#1e0449",
+      },
+      {
+        borderColor: "#d63384",
+        background: "#e685b5",
+        foreground: "#eec2d8",
+        fontColor: "#400d26",
+      },
+
+      {
+        borderColor: "#fd7d4f ",
+        background: "#fba3a0",
+        foreground: "#eee",
+        fontColor: "#0c4128",
+      },
+      {
+        borderColor: "#1b1b1b",
+        background: "#242527",
+        foreground: "#505052",
+        fontColor: "#efefef",
+      },
+    ] as Style[],
+    currentTheme: useStorage<Style>("selectTheme", {
+      borderColor: "#0d6efd",
+      background: "#6ea8fe",
+      foreground: "#adc5e9",
+      fontColor: "#011f4c",
+    }),
   }),
   actions: {
     startDrag(item: Time) {
@@ -76,6 +114,9 @@ export const useProgramStore = defineStore("program", {
       if (this.dragValue) {
         this.boxs[id] = { ...this.dragValue } as Time;
       }
+    },
+    setTheme(style: Style) {
+      this.currentTheme = style;
     },
   },
 });
