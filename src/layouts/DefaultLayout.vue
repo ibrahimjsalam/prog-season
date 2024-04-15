@@ -5,8 +5,7 @@ import Navbar from "@/components/Bar/Navbar.vue";
 
 <template>
   <!-- ===== Page Wrapper Start ===== -->
-  <div
-    class="flex h-screen overflow-hidden  pink:bg-c-pink-200 dark:bg-c-gray-200 orange:bg-c-orange-200  purple:bg-c-purple-200  blue:bg-c-blue-200">
+  <div class="flex h-screen overflow-hidden bg-background ">
     <!-- ===== Sidebar Start ===== -->
     <Sidebar />
     <!-- ===== Sidebar End ===== -->

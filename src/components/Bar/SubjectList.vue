@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import type { Time } from '@/types/index';
+import { useProgramStore } from '@/stores/program';
+
+const store = useProgramStore();
+
 const props = defineProps<{ time: Time }>();
 
 </script>
 <template>
-  <button type="button"
-    class="rounded select-none pink:bg-p-pink-200 dark:bg-g-gray-200 orange:bg-o-orange-200  purple:bg-p-purple-200  blue:bg-b-blue-200 p-2 text-sm w-[140px] text-white ">
+  <button :class="[time.instructor == store.dragValue?.instructor ? 'bg-green-400' : 'bg-background']" type="button"
+    class="rounded  select-none   p-2 mx-auto text-sm  w-full text-white ">
     {{ time.subject }}
   </button>
 </template>

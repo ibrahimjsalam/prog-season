@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import HomeView from './views/HomeView.vue';
 
-import ColorPlat from '@/components/ColorPlat.vue';
+
 import { useColorMode } from '@vueuse/core'
+import BottomNavgation from './components/Bar/BottomNavgation.vue';
 
 const mode = useColorMode({
   attribute: 'class',
@@ -11,6 +12,7 @@ const mode = useColorMode({
     pruple: 'purple',
     pink: 'pink',
     orange: 'orange',
+    teal: 'teal',
     dark: "dark"
 
   },
@@ -22,9 +24,7 @@ const mode = useColorMode({
     <!-- <ColorPlat /> -->
     <HomeView />
 
-    <div class="svgg">
-      <img src="/logo.svg" alt="">
-    </div>
+    <BottomNavgation />
   </div>
 </template>
 

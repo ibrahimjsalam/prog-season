@@ -18,8 +18,7 @@ const box = ref<HTMLDivElement | null>(null)
 
 </script>
 <template>
-  <div ref="box"
-    class="h-[64px] overflow-hidden relative  border-t border-l  pink:bg-c-pink-100 dark:bg-c-gray-100 orange:bg-c-orange-100  purple:bg-c-purple-100  blue:bg-c-blue-100   pink:border-c-pink-200 dark:border-c-gray-200 orange:border-c-orange-200  purple:border-c-purple-200  blue:border-c-blue-200"
+  <div ref="box" class="h-[64px] overflow-hidden relative  border-t border-l  bods bg-foreground  "
     @drop="store.onDrop(id)" @dragenter.prevent @dragover.prevent>
     <BoxZone v-if="time" :time="time" :id="id" />
     <div v-else @click="store.onDrop(id)" class="flex justify-center items-center h-full w-100  group/plus ">

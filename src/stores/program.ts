@@ -5,6 +5,7 @@ import { useStorage } from "@vueuse/core";
 
 export const useProgramStore = defineStore("program", {
   state: () => ({
+    showPicker: false as boolean,
     days: [
       {
         id: nanoid(),
@@ -77,8 +78,8 @@ export const useProgramStore = defineStore("program", {
         this.boxs[id] = { ...this.dragValue } as Time;
       }
     },
-    setTheme(style: Style) {
-      this.currentTheme = style;
+    clearCache() {
+      this.boxs = new Array(25).fill(null);
     },
   },
 });

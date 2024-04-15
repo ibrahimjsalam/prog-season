@@ -12,7 +12,7 @@ export default defineComponent({
     data() {
         return {
             enableEdit: true,
-            isPrac: true
+            isPrac: false
         }
     },
     computed: {
@@ -40,6 +40,7 @@ export default defineComponent({
             this.enableEdit = false;
             this.dragEnd(id)
         }, isPracHandle() {
+            console.log(99);
 
             this.isPrac = !this.isPrac;
         }
@@ -49,23 +50,24 @@ export default defineComponent({
 </script>
 
 <template>
-    <ul class="flex-1 h-full group/item   " @dragstart="moveBox(time)" @dragend="dragEnd(id)" draggable="true">
-        <div v-if="!isPrac" class="absolute blur-md -top-1 -left-1 w-6 h-6 rotate-45 "></div>
-        <div v-if="!isPrac" class="absolute blur-md -bottom-1 -right-1 w-6 h-6 rotate-45 "></div>
-        <!-- <div
+    <ul :class="{ 'flex justify-center items-center': isPrac }" class="flex-1 text-box  relative h-full group/item   "
+        @dragstart="moveBox(time)" @dragend="dragEnd(id)" draggable="true">
+        <div v-if="isPrac" class="absolute bg-color z-30 blur-md -top-1 -left-1 w-4 h-4 rotate-45 "></div>
+        <div v-if="isPrac" class="absolute bg-color z-30 blur-md -bottom-1 -right-1 w-4 h-4 rotate-45 "></div>
+        <div
             class="absolute flex justify-center items-center gap-1 scale-0 group-hover/item:scale-100  transition-all duration-300  inset-0 bg-slate-400 z-10 bg-opacity-35">
             <button type="button" @click="endMove(id)"
-                class="group-hover/item:left-1  px-2  transition-all  text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm    text-center ">
-                -
+                class="group-hover/item:left-1  px-2 py-1  transition-all  text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300  font-medium rounded  text-sm    text-center ">
+                <i class="fal fa-trash-alt"></i>
             </button>
             <button type="button" @click="isPracHandle"
-                class="group-hover/item:left-1  px-2  transition-all   text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm    text-center ">
-                +
+                class="group-hover/item:left-1   px-2 py-1  transition-all   text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded  text-sm    text-center ">
+                <i class="fal fa-head-vr"></i>
             </button>
-        </div> -->
+        </div>
         <li class="py-1  px-1.5 ">{{ time.subject }}</li>
-        <li class="py-1  px-1.5 ">{{ time.instructor }}</li>
-        <li class="py-1  px-1.5 ">{{ time.place }}</li>
+        <li v-if="!isPrac" class="py-1 border-y bods  px-1.5 ">{{ time.instructor }}</li>
+        <li v-if="!isPrac" class="py-1  px-1.5 ">{{ time.place }}</li>
 
 
     </ul>

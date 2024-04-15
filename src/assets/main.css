@@ -12,6 +12,11 @@
   margin: 0;
   box-sizing: border-box;
 }
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: none;
+}
 
 @font-face {
   font-family: "tajawal";
@@ -23,7 +28,7 @@ html {
 }
 html {
   scroll-behavior: smooth;
-  overflow-y: overlay;
+
   scrollbar-width: none;
 }
 body {
@@ -32,4 +37,23 @@ body {
   /* background: linear-gradient(0deg, #fddac6, #f68f6e);rerererererererererer
   background-size: cover;
   height: 100vh; */
+}
+.bg-color {
+  @apply pink:bg-c-pink-300 dark:bg-c-gray-300 orange:bg-c-orange-300  purple:bg-c-purple-300  blue:bg-c-blue-300 teal:bg-teal-500;
+}
+.bg-background {
+  @apply pink:bg-c-pink-200 dark:bg-c-gray-200 orange:bg-c-orange-200  purple:bg-c-purple-200  blue:bg-c-blue-200 teal:bg-teal-400;
+}
+.bg-foreground {
+  @apply pink:bg-c-pink-100 dark:bg-c-gray-100 orange:bg-c-orange-100  purple:bg-c-purple-100  blue:bg-c-blue-100 teal:bg-teal-100;
+}
+.text-nav {
+  @apply pink:text-c-pink-400 dark:text-c-gray-400 orange:text-c-orange-400  purple:text-c-purple-400  blue:text-c-blue-400  teal:text-teal-800;
+  @apply pink:hover:bg-c-pink-100 dark:hover:bg-c-gray-100 orange:hover:bg-c-orange-100  purple:hover:bg-c-purple-100  blue:hover:bg-c-blue-100 teal:hover:bg-teal-500;
+}
+.bods {
+  @apply pink:border-c-pink-200 dark:border-c-gray-200 orange:border-c-orange-200  purple:border-c-purple-200  blue:border-c-blue-200 teal:border-teal-400;
+}
+.text-box {
+  @apply pink:text-c-pink-400 dark:text-c-gray-400 orange:text-c-orange-400  purple:text-c-purple-400  blue:text-c-blue-400 teal:text-teal-800;
 }

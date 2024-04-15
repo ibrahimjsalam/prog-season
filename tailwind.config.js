@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const plugin = require("tailwindcss/plugin");
-const variants = ["blue", "purple", "pink", "orange", "dark"];
+const variants = ["blue", "purple", "pink", "orange", "teal", "dark"];
 
 const customVariantsMode = plugin(({ addVariant, e }) => {
   variants.map((variant) =>
@@ -35,7 +35,7 @@ export default {
         "c-orange-300": "#fd7d4f ",
         "c-orange-200": "#fba3a0",
         "c-orange-100": "#eee",
-        "c-orange-400": "#0c4128",
+        "c-orange-400": "#41200c",
 
         "c-gray-300": "#1b1b1b",
         "c-gray-200": "#242527",
