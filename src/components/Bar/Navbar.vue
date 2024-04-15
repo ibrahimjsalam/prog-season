@@ -39,12 +39,14 @@ const getImg = () => {
     <nav class="px-4 py-2 w-full flex gap-2 justify-end items-center">
 
         <div class="flex">
-            <button @click="showPicker = true" type="button" class="mx-2 sm:hidden rounded p-3 text-nav">
+            <button @click="showPicker = true" type="button"
+                class="mx-2  flex justify-center items-center sm:hidden rounded p-3 text-nav">
 
                 <i class="fal fa-brush"></i>
             </button>
 
-            <button @click="store.clearCache" type="button" class="mx-2 sm:flex rounded p-3 text-nav">
+            <button @click="store.clearCache" type="button"
+                class="mx-2  flex justify-center items-center rounded p-3 text-nav">
                 <i class="fal fa-eraser"></i>
             </button>
             <button @click="getImg" type="button" class="rounded flex justify-center items-center p-3 text-nav">
