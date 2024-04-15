@@ -55,7 +55,7 @@ export default defineComponent({
         <div v-if="isPrac" class="absolute bg-color z-30 blur-md -top-1 -left-1 w-4 h-4 rotate-45 "></div>
         <div v-if="isPrac" class="absolute bg-color z-30 blur-md -bottom-1 -right-1 w-4 h-4 rotate-45 "></div>
         <div
-            class="absolute flex justify-center items-center gap-1 scale-0 group-hover/item:scale-100  transition-all duration-300  inset-0 bg-slate-400 z-10 bg-opacity-35">
+            class="absolute flex justify-center items-center gap-1 -translate-x-full group-hover/item:translate-x-0   transition-all duration-300  inset-0 bg-slate-400 z-10 bg-opacity-35">
             <button type="button" @click="endMove(id)"
                 class="group-hover/item:left-1  px-2 py-1  transition-all  text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300  font-medium rounded  text-sm    text-center ">
                 <i class="fal fa-trash-alt"></i>
