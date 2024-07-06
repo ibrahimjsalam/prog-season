@@ -1,4 +1,4 @@
-# Custom Program Season in Vue.js
+# Custom Program Season in Vue.js + Tailwindcss
 
 This project allows users to create a custom program season using a drag-and-drop interface in Vue.js. Users can easily drag subjects and drop them into a table to organize their program.
 
